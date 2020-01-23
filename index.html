@@ -67,7 +67,7 @@ body { min-height:500px;}
 
 </div>
 
-
+<!--
 <div class="container">
 <div class="bs-callout bs-callout-success">
 	<center><h2>Papers</h2></center>
@@ -82,7 +82,77 @@ body { min-height:500px;}
 			<button type="button" class="btn btn-default btn-lg btn-block"  style="text-align:left;">
 				 <a href="papers/Kent2013.pdf" style="color:inherit"> <i class="fa fa-book"></i> On optimal routing for commercial formation flight - <i>T. Kent, A. Richards 2013</i></a>
 			</button>
+
+
 </div>
+</div> -->
+
+<div class="container">
+	<center><h2>Papers</h2></center>
+</div>
+
+<div class="container">
+	<div class="col-md-4">
+	<div class="panel panel-success">
+		<div class="panel-heading">Optimal routing and assignment for commercial formation flight</div>
+			<div class="panel-body">
+					<center><b>T. Kent</b><br>
+									2015<br>
+									Thesis<br>
+									Faculty of Engineering<br>
+									University of Bristol<br>
+
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="papers/Kent2015Thesis.pdf" style="color:inherit"> <i class="fa fa-book"></i> Pdf</a>
+				</button>
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.689690" style="color:inherit"> <i class="fa fa-link"></i> Web</a>
+				</button>
+				</center>
+			</div>
+	</div>
+	</div>
+	<div class="col-md-4">
+	<div class="panel panel-success">
+		<div class="panel-heading">Analytic Approach to Optimal Routing for Commercial Formation Flight</div>
+			<div class="panel-body">
+					<center><b>T. Kent & A. Richards</b><br>
+									2015<br>
+									AIAA Journal of Guidance, Control and Dynamics <br>
+									Volum 38, No. 10
+									October, 2015<br>
+									Boston, MA<br>
+
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="papers/Kent2015.pdf" style="color:inherit"> <i class="fa fa-book"></i> Pdf</a>
+				</button>
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="https://arc.aiaa.org/doi/abs/10.2514/1.G000806" style="color:inherit"> <i class="fa fa-link"></i> Web</a>
+				</button>
+				</center>
+			</div>
+	</div>
+	</div>
+	<div class="col-md-4">
+	<div class="panel panel-success">
+		<div class="panel-heading">On optimal routing for commercial formation flight </div>
+			<div class="panel-body">
+					<center><b>T. Kent & A. Richards</b><br>
+									2013<br>
+									AIAA Guidance, Navigation, and Control Conference <br>
+									August 19-22, 2013<br>
+									Boston, MA<br>
+
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="papers/Kent2013.pdf" style="color:inherit"> <i class="fa fa-book"></i> Pdf</a>
+				</button>
+				<button type="button" class="btn btn-default btn-lg"  style="text-align:left;">
+					 <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2013-4889" style="color:inherit"> <i class="fa fa-link"></i> Web</a>
+				</button>
+				</center>
+			</div>
+	</div>
+	</div>
 </div>
 <div class="container">
 	<center><h2>Choose a dataset</h2></center>
@@ -96,48 +166,49 @@ body { min-height:500px;}
  </div>
 
 
-<div class="col-md-4 col-md-offset-2">
-<div class="panel panel-success">
-	<div class="panel-heading">MILP assigned formations - with constraints</div>
-	    <div class="panel-body">Using only the combinations whose take off times only need to be altered by a certain threshold<br><br>
-	    <center>
-	    <div class="btn-group">
-		  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
-		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" role="menu">
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_5">5 mins</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_10">10 mins</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_15">15 mins</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_30">30 mins</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_45">45 mins </a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_60">1 hour</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_120">2 hour</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_240">4 hour</a></li>
-				<li><a href="results.html?map=True&fname=TAA/Form_data_t_any">Any</a></li>
-		  </ul>
-	    </div>
-	    </center>
-	    </div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="panel panel-success">
-	<div class="panel-heading">Unassigned formations</div>
-	    <div class="panel-body">All combinations of flights evaluated for a given day<br><br>
+<div class="container">
+	<div class="col-md-4 col-md-offset-2">
+	<div class="panel panel-success">
+		<div class="panel-heading">MILP assigned formations - with constraints</div>
+		    <div class="panel-body">Using only the combinations whose take off times only need to be altered by a certain threshold<br><br>
 		    <center>
-	   	     <div class="btn-group">
+		    <div class="btn-group">
 			  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
-			   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
+			   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-				<li><a href="results.html?map=False&fname=TAA/Form_data_Big">All</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_5">5 mins</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_10">10 mins</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_15">15 mins</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_30">30 mins</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_45">45 mins </a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_60">1 hour</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_120">2 hour</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_240">4 hour</a></li>
+					<li><a href="results.html?map=True&fname=TAA/Form_data_t_any">Any</a></li>
 			  </ul>
-	   	     </div>
+		    </div>
 		    </center>
-	    </div>
+		    </div>
+	</div>
+	</div>
+	<div class="col-md-4">
+	<div class="panel panel-success">
+		<div class="panel-heading">Unassigned formations</div>
+		    <div class="panel-body">All combinations of flights evaluated for a given day<br><br>
+			    <center>
+		   	     <div class="btn-group">
+				  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
+				   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a href="results.html?map=False&fname=TAA/Form_data_Big">All</a></li>
+				  </ul>
+		   	     </div>
+			    </center>
+		    </div>
+	</div>
 </div>
-
 </div>
 <!--
 <div class="col-md-4 col-md-offset-2">
