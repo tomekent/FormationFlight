@@ -7,28 +7,30 @@
 <meta name="author" content="Thomas Kent">
 
 <head>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="../FormationFlight/js/crossfilter.v1.min.js"></script>
-<script src="../FormationFlight/js/d3.v3.min.js"></script>
-<script src="../FormationFlight/js/dc.js"></script>
-<script type="text/javascript" src="../FormationFlight/js/crossfilter.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDz9r9m83Yzs0ahwC9JczsxeD03tEhgKQc"></script> -->
+<script src="js/crossfilter.v1.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/dc.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script src="../FormationFlight/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-<link href="../FormationFlight/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- <link rel="stylesheet" href="css/layouts/marketing.css"> -->
 
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
-<link href="../FormationFlight/css/style.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../FormationFlight/css/dc.css"/>
+<link href="css/style.css" rel="stylesheet">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="css/colorbrewer.css"/> -->
 
 <style type="text/css">
 body { min-height:500px;}
 </style>
-</head>   
+</head>
 
 <title>Formations</title>
 
@@ -36,19 +38,19 @@ body { min-height:500px;}
 	<div class="jumbotron">
 		<center>
 		<h1>Formation Flight Results</h1>
-		
-		
+
+
 		<h2></h2>
 		</center>
-		<p>	
-		Using Matlab to first find the optimal formations of size two we look to see how the multi-variate results interact. Using the power of <a href="https://d3js.org/">dc.js</a>, <a href="https://github.com/square/crossfilter">crossfilter.js</a> and <a href="https://developers.google.com/maps/documentation/javascript">Google Maps' Javascript Api</a> we can quickly render the results.
-	
+		<p>
+		Using Matlab to first find the optimal formations of size two we look to see how the multi-variate results interact. Using the power of <a href="http://d3js.org/">dc.js</a>, <a href="https://github.com/square/crossfilter">crossfilter.js</a> and <a href="https://developers.google.com/maps/documentation/javascript">Google Maps' Javascript Api</a> we can quickly render the results.
+
 		<br>
 		We can interrogate the data to try and answer some simple questions. <br>
-		<br>How does time-of-day correlate with saving? 
-		<br>Are longer flights better? 
+		<br>How does time-of-day correlate with saving?
+		<br>Are longer flights better?
 		<br>Do Formations with less deviation perform better?
-		<br>What impact does restricting changes in take-off time effect savings? 
+		<br>What impact does restricting changes in take-off time effect savings?
 		</p>
 		<br>
 
@@ -62,13 +64,13 @@ body { min-height:500px;}
 
  <div class="bs-callout bs-callout-info">
 		<h2>Case Study: Transatlantic Flights</h2>
-			This dataset is of the standard 210 transatlantic flights flying from the US to Europe. These are currently without a particular date and so are assumed to be all on the same day. All 22k of the combinations of the 210 flights are evaluated. The datasets available are for those which have then been assigned into formation via a MILP - under the noted constraints, and the dataset of the unassigned formations. 
+			This dataset is of the standard 210 transatlantic flights flying from the US to Europe. These are currently without a particular date and so are assumed to be all on the same day. All 22k of the combinations of the 210 flights are evaluated. The datasets available are for those which have then been assigned into formation via a MILP - under the noted constraints, and the dataset of the unassigned formations.
  </div>
- 
- 
+
+
 <div class="col-md-4 col-md-offset-2">
-<div class="panel panel-success">	
-	<div class="panel-heading">MILP assigned formations - with constraints</div>	
+<div class="panel panel-success">
+	<div class="panel-heading">MILP assigned formations - with constraints</div>
 	    <div class="panel-body">Using only the combinations whose take off times only need to be altered by a certain threshold<br><br>
 	    <center>
 	    <div class="btn-group">
@@ -76,15 +78,15 @@ body { min-height:500px;}
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_5">5 mins</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_10">10 mins</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_15">15 mins</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_30">30 mins</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_45">45 mins </a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_60">1 hour</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_120">2 hour</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_240">4 hour</a></li>
-				<li><a href="../FormationFlight/results.html?fname=Transatlantic/Form_data_t_any">Any</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_5">5 mins</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_10">10 mins</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_15">15 mins</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_30">30 mins</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_45">45 mins </a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_60">1 hour</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_120">2 hour</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_240">4 hour</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_any">Any</a></li>
 		  </ul>
 	    </div>
 	    </center>
@@ -93,7 +95,7 @@ body { min-height:500px;}
 </div>
 <div class="col-md-4">
 <div class="panel panel-success">
-	<div class="panel-heading">Unassigned formations</div>	
+	<div class="panel-heading">Unassigned formations</div>
 	    <div class="panel-body">All combinations of flights evaluated for a given day<br><br>
 		    <center>
 	   	     <div class="btn-group">
@@ -101,7 +103,7 @@ body { min-height:500px;}
 			   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-				<li><a href="../FormationFlight/results_noMap.html?fname=Transatlantic/Form_data_Big">All</a></li>
+				<li><a href="results.html?map=False&fname=Transatlantic/Form_data_Big">All</a></li>
 			  </ul>
 	   	     </div>
 		    </center>
@@ -111,8 +113,8 @@ body { min-height:500px;}
 </div>
 <!--
 <div class="col-md-4 col-md-offset-2">
-<div class="panel panel-danger">	
-	<div class="panel-heading">Stochastic Dynamic Programming Solutions</div>	
+<div class="panel panel-danger">
+	<div class="panel-heading">Stochastic Dynamic Programming Solutions</div>
 	    <div class="panel-body">Using the probabilistic costs to allocate a cost to a formations, then assigned via a MILP. This includes basic portfolio optimisation incorporating factors of standard deviation.<br><br>
 	    <center>
 	    <div class="btn-group">
@@ -120,12 +122,12 @@ body { min-height:500px;}
 		   <i class="fa fa-clock-o"></i> Assignment Cost <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v2">Expected Cost</a></li>
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v3">Expected Cost +1 SD</a></li>
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v4">Expected Cost +2 SD</a></li>
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v5">Expected Cost +3 SD</a></li>
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v6">Best achievable value</a></li>
-				<li><a href="results.html?fname=Transatlantic%20SDP/Form_data_SDP_v7">Worst achievable value</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v2">Expected Cost</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v3">Expected Cost +1 SD</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v4">Expected Cost +2 SD</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v5">Expected Cost +3 SD</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v6">Best achievable value</a></li>
+				<li><a href="results.html?map=True&fname=Transatlantic%20SDP/Form_data_SDP_v7">Worst achievable value</a></li>
 	    </div>
 	    </center>
 	    </div>
@@ -139,37 +141,37 @@ body { min-height:500px;}
 <!-- 	<div class="row"> -->
 	 <div class="bs-callout bs-callout-warning">
 		<h2>Case Study: EasyJet Flights</h2>
-		
-		This dataset contains 4238 different EasyJet flights routes over 7 days, some flights running on multiple days meant that the total individual flights totalled 8750. As flights repeat over the week and multiple identical routes are flown on the same day (but at different times) the results need to be filtered.  	
+
+		This dataset contains 4238 different EasyJet flights routes over 7 days, some flights running on multiple days meant that the total individual flights totalled 8750. As flights repeat over the week and multiple identical routes are flown on the same day (but at different times) the results need to be filtered.
 		<br><br>
 		Firstly the data is broken down into individual days (roughly 1000 flights each day), then all possible combinations (roughly 750k each time) are evaluated for formation. The unassigned formations dataset are then all the favourable formations from all combinations. These give a broader overview of all combinations and the spread of results. The MILP assigned formations, are then those which maximise the total possible saving. These are run for each day, and for different thresholds of alterations to takeoff time. The change in Take off time is important, as multiple identical flights on a day would quickly be put together otherwise, producing unrealistic results. <br>
 <!-- 	 </div> -->
 	 </div>
 <div class="col-md-4 col-md-offset-2">
 <div class="panel panel-success">
-	<div class="panel-heading">MILP assigned formations - with constraints</div>	
+	<div class="panel-heading">MILP assigned formations - with constraints</div>
 	    <div class="panel-body">Using only the combinations whose take off times only need to be altered by a certain threshold<br><br>
 	    <center>
 	    <div class="btn-group">
 		  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
-		  <ul class="dropdown-menu" role="menu">		  
-		    <li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_15">15 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_30">30 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_45">45 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_60"> 1 hour</a></li>
-			<li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_120">2 hours</a></li>
-			<li><a href="../FormationFlight/results.html?fname=EasyJet/Form_data_t_240">4 hours</a></li>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="results.html?map=True&fname=EasyJet/Form_data_t_15">15 mins</a></li>
+			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_30">30 mins</a></li>
+			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_45">45 mins</a></li>
+			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_60"> 1 hour</a></li>
+			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_120">2 hours</a></li>
+			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_240">4 hours</a></li>
 		  </ul>
-		</div>	
-	    </center>	
-	    </div> 	
+		</div>
+	    </center>
+	    </div>
 	</div>
 </div>
 <div class="col-md-4">
 <div class="panel panel-success">
-	<div class="panel-heading">Unassigned formations</div>	
+	<div class="panel-heading">Unassigned formations</div>
 	    <div class="panel-body">All combinations of flights evaluated for a given day<br></br>
 	    <center>
    	     <div class="btn-group">
@@ -177,13 +179,13 @@ body { min-height:500px;}
 		   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-  			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Mon">Mon</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Tue">Tue</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Wed">Wed</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Thu">Thu</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Fri">Fri</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Sat">Sat</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=EasyJet/Form_data_Sun">Sun</a></li>
+  			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Mon">Mon</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Tue">Tue</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Wed">Wed</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Thu">Thu</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Fri">Fri</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Sat">Sat</a></li>
+			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Sun">Sun</a></li>
 			</ul>
    	     </div>
 	    </center>
@@ -199,40 +201,40 @@ body { min-height:500px;}
 <!-- 	<div class="row"> -->
 	 <div class="bs-callout bs-callout-danger">
 		<h2>Case Study: Singapore Airlines</h2>
-		
-			Singapore Airlines is a major airline company serving flights from Southeast, East and South Asia to many domestic and international destinations. It acts as a good case study for a wide range of flight distances, ranging mostly between medium-haul to super-long-haul flights. The main difference between these flights and ones seen in the other case studies is that the vast majority of the routes are either flying from or to Singapore acting like a hub-network so not all routes are natural candidates for formation flight. 
+
+			Singapore Airlines is a major airline company serving flights from Southeast, East and South Asia to many domestic and international destinations. It acts as a good case study for a wide range of flight distances, ranging mostly between medium-haul to super-long-haul flights. The main difference between these flights and ones seen in the other case studies is that the vast majority of the routes are either flying from or to Singapore acting like a hub-network so not all routes are natural candidates for formation flight.
 The dataset contains 417 different Singapore Airlines flights running over a 7 day period. The number of flights per day ranges between 228 and 242 resulting in a respective range of formation combinations of between 25,000 and 29,000.
-		
+
 		<br><br>
 		Firstly the data is broken down into individual days (roughly 235 flights each day), then all possible combinations (roughly 27k each time) are evaluated for formation. The unassigned formations dataset are then all the favourable formations from all combinations. These give a broader overview of all combinations and the spread of results. The MILP assigned formations, are then those which maximise the total possible saving. These are run for each day, and for different thresholds of alterations to takeoff time. The change in Take off time is important, as multiple identical flights on a day would quickly be put together otherwise, producing unrealistic results. <br>
 <!-- 	 </div> -->
 	 </div>
 <div class="col-md-4 col-md-offset-2">
 <div class="panel panel-success">
-	<div class="panel-heading">MILP assigned formations - with constraints</div>	
+	<div class="panel-heading">MILP assigned formations - with constraints</div>
 	    <div class="panel-body">Using only the combinations whose take off times only need to be altered by a certain threshold<br><br>
 	    <center>
 	    <div class="btn-group">
 		  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
-		  <ul class="dropdown-menu" role="menu">		  
-		    <li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_15">15 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_30">30 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_45">45 mins</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_60"> 1 hour</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_120">2 hours</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_240">4 hours</a></li>
-			<li><a href="../FormationFlight/results.html?fname=SingaporeAirlines/Form_data_t_Inf">Any</a></li>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_15">15 mins</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_30">30 mins</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_45">45 mins</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_60"> 1 hour</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_120">2 hours</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_240">4 hours</a></li>
+			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_Inf">Any</a></li>
 		  </ul>
-		</div>	
-	    </center>	
-	    </div> 	
+		</div>
+	    </center>
+	    </div>
 	</div>
 </div>
 <div class="col-md-4">
 <div class="panel panel-success">
-	<div class="panel-heading">Unassigned formations</div>	
+	<div class="panel-heading">Unassigned formations</div>
 	    <div class="panel-body">All combinations of flights evaluated for a given day<br></br>
 	    <center>
    	     <div class="btn-group">
@@ -240,13 +242,13 @@ The dataset contains 417 different Singapore Airlines flights running over a 7 d
 		   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-  			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Mon">Mon</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Tue">Tue</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Wed">Wed</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Thu">Thu</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Fri">Fri</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Sat">Sat</a></li>
-			<li><a href="../FormationFlight/results_noMap.html?fname=SingaporeAirlines/Form_data_Sun">Sun</a></li>
+  			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Mon">Mon</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Tue">Tue</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Wed">Wed</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Thu">Thu</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Fri">Fri</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Sat">Sat</a></li>
+			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Sun">Sun</a></li>
 			</ul>
    	     </div>
 	    </center>

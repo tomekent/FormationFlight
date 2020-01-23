@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
 
 body {
   font-family: "Helvetica Neue";
@@ -95,6 +95,7 @@ h3.side-label {
   stroke: #666;
 }
 
+/* Charts */
 #hour-chart {
   width: 280px;
 }
@@ -124,9 +125,12 @@ h3.side-label {
   width: 620px;
 }
 
-#flight-list {
 
-  min-height: 1024px;
+/* Bottom Flight Table */
+
+#flight-list {
+     justify-content: center;
+     /* border-bottom:1px solid #eee; */
 }
 
 #flight-list .date,
@@ -136,28 +140,36 @@ h3.side-label {
 
 #flight-list .flight {
   line-height: 1.5em;
-  background: #eee;
-  margin-left: 60px;
-  width: 760px;
+  /* background: #eee; */
+  margin-left: auto;
+
+  /* margin-right: auto; */
+  width: 1080px;
   margin-bottom: 1px;
+  /* border-bottom:1px solid #eee; */
+
 }
 
 #flight-list .time {
   color: #999;
+   /* border-bottom:0px solid #eee; */
 }
 
 #flight-list .flight div {
   display: inline-block;
   width: 80px;
+   /* border-bottom:1px solid #eee; */
 }
 
 
 #flight-list div.day {
-  width: 30px;
+
+  width: 50px;
   padding-right: 10px;
-  padding-left: 5px;
+  padding-left: 10px;
   text-align: left;
-  color: #686868
+  color: #686868;
+   /* border-top:1px solid #eee; */
 }
 
 #flight-list div.origin,
@@ -165,16 +177,37 @@ h3.side-label {
   width: 120px;
   padding-right: 10px;
   text-align: center;
+   /* border-top:1px solid #eee; */
 }
 
 #flight-list div.distance,
 #flight-list div.percentage,
-#flight-list div.cruise {
+#flight-list div.cruise,
+#flight-list div.fb-saving,
+#flight-list div.co2-saving {
+  width:110px;
+  padding-right: 10px;
+  text-align: right;
+  /* border-top:1px solid #eee; */
+}
+
+/* #flight-list div.fb-saving {
   width: 90px;
   padding-right: 10px;
   text-align: right;
 }
+#flight-list div.co2-saving {
+  width: 90px;
+  padding-right: 10px;
+  text-align: right;
+} */
 
+#flight-list div.tdiff {
+  width: 90px;
+  padding-right: 2px;
+  text-align: right;
+   /* border-top:1px solid #eee; */
+}
 /* Headers */
 
 #flight-list div.day.header {
@@ -185,35 +218,46 @@ h3.side-label {
   color: #686868;
   font-size: larger;
    vertical-align: middle;
-
+   /* border-top:0px solid #0ee; */
 }
 
+#flight-list div.time.header {
+  text-align: center;
+  color: #999;
+  font-size: larger;
+   vertical-align: middle;
+   border-top:0px solid #0ee;
+}
 #flight-list div.origin.header,
 #flight-list div.destination.header{
   padding-right: 10px;
   text-align: center;
   font-size: larger;
   vertical-align: middle;
-
-
+   border-top:0px solid #0ee;
 }
 
 #flight-list div.distance.header,
 #flight-list div.percentage.header,
 #flight-list div.cruise.header,
-#flight-list div.Tdiff.header {
+#flight-list div.Tdiff.header,
+#flight-list div.fb-saving.header,
+#flight-list div.co2-saving.header {
   padding-right: 0px;
   text-align: center;
   font-size: larger;
   vertical-align: middle;
+   border-top:0px solid #0ee;
 
 }
 
 
 #flight-list .early {
   color: green;
-  
+
 }
+
+
 
 aside {
   position: relative;
@@ -233,7 +277,7 @@ resetbutton {
 
 /* Side notes for calling out things
 -------------------------------------------------- */
- 
+
  .btn {
 	margin-top : 5px;
 	margin-bottom: 5px;
@@ -254,7 +298,7 @@ resetbutton {
 .bs-callout .highlight {
   background-color: #fff;
 }
- 
+
 /* Themes for different contexts */
 .bs-callout-danger {
   background-color: #fcf2f2;

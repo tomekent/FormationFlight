@@ -3,10 +3,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Formation Flight ">
-<meta name="keywords" content="Formation flight, aircraft, research, aviation">
+<meta name="keywords" content="aircraft, research, aviation, formation flight, environment, co2, emissions">
 <meta name="author" content="Thomas Kent">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDz9r9m83Yzs0ahwC9JczsxeD03tEhgKQc"></script> -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
     // Read a page's GET URL variables and return them as an associative array.
@@ -18,6 +20,7 @@
             hash = hashes[i].split('=');
             vars.push(hash[0]);
             vars[hash[0]] = hash[1];
+            // console.log(i, hash[0], hash[1])
         }
         return vars;
     }
@@ -26,38 +29,45 @@
     	//Anything in this section runs once the page has loaded.
     	fname = "Data/"+ getUrlVars()["fname"] +".csv";
     	$("#fname").html(fname);
-    	console.log(fname);
+        plotmap = (getUrlVars()['map'] == 'True')
+        if (plotmap == false){
+            document.getElementById('mapplot').style.display = 'none';
+        }
     });
 </script>
-    
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="../FormationFlight/js/crossfilter.v1.min.js"></script>
-<script src="../FormationFlight/js/d3.v3.min.js"></script>
-<script src="../FormationFlight/js/dc.js"></script>
-<script src="../FormationFlight/js/cf_plots.js"</script>
-<script src="../FormationFlight/js/crossfilter.js"></script>
-<script src="../FormationFlight/js/bootstrap.min.js"></script>
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDz9r9m83Yzs0ahwC9JczsxeD03tEhgKQc"></script>
+<script src="js/crossfilter.v1.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/dc.js"></script>
+<script src="js/cf_plots.js"</script>
+<script src="js/crossfilter.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- <script type="text/javascript" src="js/colorbrewer.js"></script> -->
 <script>document.addEventListener('DOMContentLoaded', init(), false);</script>
+<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
 
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<link href="../FormationFlight/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="css/layouts/marketing.css"> -->
 
-<link href="../FormationFlight/css/style.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../FormationFlight/css/dc.css"/>
-<link rel="stylesheet" type="text/css" href="../FormationFlight/css/colorbrewer.css"/>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<link rel="stylesheet" type="text/css" href="css/colorbrewer.css"/>
 
 <title>Formations Flight Results</title>
 
-</head>   
+</head>
 
 
 <div class="container">
 	<div class="jumbotron">
 		<center>
 		<h1>Formation Flight Results</h1>
-		
-		<br>		
+
+		<br>
 		<center><span id="active">-</span> of <span id="total">-</span> flights selected</center>
 	</div>
 	<div class="row">
@@ -67,13 +77,13 @@
 <!-----------------------------  The buttons --------------------------->
 
 <div class="container">
- 
+
 <div class="row">
 <div class="col-md-12 btn-marg">
-<center> 
+<center>
 <!-- <b style="font-size: 32px;">Filters: <b> -->
-	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Choose Dataset</a>		
-		
+	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Choose Dataset</a>
+
 	<div class="btn-group btn-marg">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 	   <i class="fa fa-calendar-o"></i> Flight Day <span class="caret"></span>
@@ -91,7 +101,7 @@
 		<li><a href="javascript:filter([null, [new Date(2014, 08, 07), new Date(2014, 08, 08)], null, null, null, null])">Sunday</a></li>
 	  </ul>
 	</div>
-	
+
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 	   <i class="fa fa-calendar-o"></i> Flight Times <span class="caret"></span>
@@ -102,45 +112,45 @@
 		<li><a href="javascript:filter([[15, 20], null, null, null, null])">Evening</a></li>
 		<li><a href="javascript:filter([[20, 24], null, null, null, null])">Nights</a></li>
 	  </ul>
-	</div>	
-	
+	</div>
+
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 	   <i class="fa fa-plane"></i> Flight Distance <span class="caret"></span>
 	  </button>
-	  <ul class="dropdown-menu" role="menu">
-  	    <li><a href="javascript:filter([null, null, null, [0,500], null])">0-500 km</a></li>
-	    <li><a href="javascript:filter([null, null, null, [500,1000], null])">0-1000 km</a></li>
-	    <li><a href="javascript:filter([null, null, null, [1000,2000], null])">1000-2000 km</a></li>
-		<li><a href="javascript:filter([null, null, null, [2000,5000], null])">2000-5000 km</a></li>
-		<li><a href="javascript:filter([null, null, null, [5000,50000], null])">5000 km +</a></li>
-	    <li class="divider"></li>
-		<li><a href="javascript:filter([null, null, null, [0,800], null])">Short Haul</a></li>
-		<li><a href="javascript:filter([null, null, null, [800,2000], null])">Medium Haul</a></li>
-		<li><a href="javascript:filter([null, null, null, [2000,6000], null])">Long Haul</a></li>
-		<li><a href="javascript:filter([null, null, null, [6000,50000], null])">Ultra-Long Haul</a></li>
-	  </ul>
-	</div>	
-	
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="javascript:filter([null, null, null, [0,500], null])">0-500 km</a></li>
+        <li><a href="javascript:filter([null, null, null, [500,1000], null])">0-1000 km</a></li>
+        <li><a href="javascript:filter([null, null, null, [1000,2000], null])">1000-2000 km</a></li>
+        <li><a href="javascript:filter([null, null, null, [2000,5000], null])">2000-5000 km</a></li>
+        <li><a href="javascript:filter([null, null, null, [5000,50000], null])">5000 km +</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:filter([null, null, null, [0,800], null])">Short Haul</a></li>
+        <li><a href="javascript:filter([null, null, null, [800,2000], null])">Medium Haul</a></li>
+        <li><a href="javascript:filter([null, null, null, [2000,6000], null])">Long Haul</a></li>
+        <li><a href="javascript:filter([null, null, null, [6000,50000], null])">Ultra-Long Haul</a></li>
+      </ul>
+	</div>
+
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 	   <i class="fa fa-clock-o"></i> Schedule Change <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu" role="menu">
-  	    <li><a href="javascript:filter([null, null, null, null, null, null, [0,5]])">5 mins</a></li>
-	    <li><a href="javascript:filter([null, null, null, null, null, null, [0,10]])">10 mins</a></li>
-	    <li><a href="javascript:filter([null, null, null, null, null, null, [0,15]])">15 mins</a></li>
-		<li><a href="javascript:filter([null, null, null, null, null, null, [0,30]])">30 mins</a></li>
-		<li><a href="javascript:filter([null, null, null, null, null, null, [0,45]])">45 mins</a></li>
-		<li><a href="javascript:filter([null, null, null, null, null, null, [0,60]])">1 hour</a></li>
-		<li><a href="javascript:filter([null, null, null, null, null, null, [0,120]])">2 hours</a></li>
-		<li><a href="javascript:filter([null, null, null, null, null, null, [0,240]])">4 hours</a></li>
-	    <li><a href="javascript:filter([null, null, null, null, null, null, [0,1440]])">Any</a></li>
+  	    <li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,5]])">5 mins</a></li>
+	    <li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,10]])">10 mins</a></li>
+	    <li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,15]])">15 mins</a></li>
+		<li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,30]])">30 mins</a></li>
+		<li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,45]])">45 mins</a></li>
+		<li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,60]])">1 hour</a></li>
+		<li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,120]])">2 hours</a></li>
+		<li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,240]])">4 hours</a></li>
+	    <li><a href="javascript:filter([null, null, null, null, null, null,  null, null, [0,1440]])">Any</a></li>
 	  </ul>
 	</div>
-	
-	<a class="btn btn-danger btn-lg" href="javascript:filter([null, null, null, null, null, null, null])"><i class="fa fa-power-off"></i> Reset Filters</a>	
-	
+
+	<a class="btn btn-danger btn-lg" href="javascript:filter([null, null, null, null, null, null, null, null, null])"><i class="fa fa-power-off"></i> Reset Filters</a>
+
 </center>
 </div>
 </div>
@@ -217,14 +227,33 @@
 		</div>
 		</div>
 	</div>
-</div>
-	
-	
-<!-----------------------------  The Map --------------------------->
 
+    <div class="row">
+		<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Fuel Burn Saving (tonnes)<span class="badge pull-right"><b id="fb-kg-total"></b></span></div>
+			<div class="panel-body">
+				<center><div id="fb-kg-chart" class="chart"><div class="resetbutton"></div></div></center>
+		   </div>
+		</div>
+		</div>
+		<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">CO2 Saving (tonnes) <span class="badge pull-right"><b id="co2-kg-total"></b></span></div>
+			<div class="panel-body">
+				<center><div id="co2-kg-chart" class="chart"><div class="resetbutton"></div></div></center>
+		   </div>
+		</div>
+	</div>
+
+</div>
+</div>
+
+
+<!-----------------------------  The Map --------------------------->
+<div id="mapplot">
 <div class="container">
 	<div class="row">
-<!-- 	<div class="col-md-1"></div> -->
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 		<div class="panel-heading">Google Maps Plot</div>
@@ -235,20 +264,23 @@
 			</div>
 		</div>
 	</div>
-<!-- 	<div class="col-md-1"></div> -->
 	</div>
 </div>
-
+</div>
 
 
 <div class="container">
 	<div class="row">
-	<div class="col-md-1"></div>
-	<div class="col-md-10 hidden-xs">
+
+    <div class="col-md-12" display=flex>
+	<!-- <div class="col-md-1"></div>
+	<div class="col-md-10 hidden-xs"> -->
+    <div class="panel panel-primary">
+    <div class="panel-heading">List of Formations <span class="badge pull-right"><b id="active-forms"></b></span></div>
 		<div id="lists">
-		
-		<h3>List of Formations</h3>
-		<br>
+
+		<!-- <h3>List of Formations</h3> -->
+		<!-- <br> -->
 		  <div id="flight-list" class="list">
 			  	<div class="flight header">
 				 	<div class="day header">Day</div>
@@ -257,13 +289,17 @@
 				 	<div class="destination header">Flight 2</div>
 					<div class="time header">Time</div>
 				 	<div class="percentage header">Fuel burn Saving</div>
+                    <div class="fb-saving header">Fuel burn Saving (tonnes)</div>
+                    <div class="co2-saving header">Co2 Saving (tonnes)</div>
 				 	<div class="cruise header">Prop. in cruise</div>
 				 	<div class="Tdiff header">Time difference</div>
 				</div>
+                <hr
 		  </div>
 		</div>
 	</div>
-	<div class="col-md-1"></div>
+    </div>
+	<!-- <div class="col-md-1"></div> -->
 	</div>
 </div>
 
@@ -271,7 +307,7 @@
 
 <footer>
   <span style="float:right;">
-    Released under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.
+    Tom Kent 2020
   </span>
 </footer>
 </div>
