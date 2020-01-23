@@ -6,8 +6,6 @@
 <meta name="keywords" content="aircraft, research, aviation, formation flight, environment, co2, emissions">
 <meta name="author" content="Thomas Kent">
 <head>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDz9r9m83Yzs0ahwC9JczsxeD03tEhgKQc"></script> -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
@@ -82,11 +80,12 @@
 <div class="col-md-12 btn-marg">
 <center>
 <!-- <b style="font-size: 32px;">Filters: <b> -->
+	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Back</a>
 	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Choose Dataset</a>
 
 	<div class="btn-group btn-marg">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-	   <i class="fa fa-calendar-o"></i> Flight Day <span class="caret"></span>
+	   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu" role="menu">
 	    <li><a href="javascript:filter([null, [new Date(2014, 08, 01), new Date(2014, 08, 06)]])">Weekdays</a></li>
@@ -104,7 +103,7 @@
 
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-	   <i class="fa fa-calendar-o"></i> Flight Times <span class="caret"></span>
+	   <i class="fa fa-calendar-o"></i> Times <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu" role="menu">
 	    <li><a href="javascript:filter([[0, 12], null, null, null, null])">Mornings</a></li>
@@ -116,7 +115,7 @@
 
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-	   <i class="fa fa-plane"></i> Flight Distance <span class="caret"></span>
+	   <i class="fa fa-plane"></i> Distance <span class="caret"></span>
 	  </button>
       <ul class="dropdown-menu" role="menu">
         <li><a href="javascript:filter([null, null, null, [0,500], null])">0-500 km</a></li>
@@ -134,7 +133,7 @@
 
 	<div class="btn-group">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-	   <i class="fa fa-clock-o"></i> Schedule Change <span class="caret"></span>
+	   <i class="fa fa-clock-o"></i> Schedule <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu" role="menu">
   	    <li><a href="javascript:filter([null, null, null, null, null, null, null, null,  [0,5]])">5 mins</a></li>
@@ -149,7 +148,7 @@
 	  </ul>
 	</div>
 
-	<a class="btn btn-danger btn-lg" href="javascript:filter([null, null, null, null, null, null, null, null, null])"><i class="fa fa-power-off"></i> Reset Filters</a>
+	<a class="btn btn-danger btn-lg" href="javascript:filter([null, null, null, null, null, null, null, null, null])"><i class="fa fa-power-off"></i> Reset</a>
 
 </center>
 </div>
