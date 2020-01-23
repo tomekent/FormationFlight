@@ -37,30 +37,59 @@ body { min-height:500px;}
 <div class="container">
 	<div class="jumbotron">
 		<center>
-		<h1>Formation Flight Results</h1>
-
-
-		<h2></h2>
+		<h1>Formation Flight for Commercial Aviation</h1>
+		<h2>A Case Study</h2>
 		</center>
-		<p>
-		Using Matlab to first find the optimal formations of size two we look to see how the multi-variate results interact. Using the power of <a href="https://d3js.org/">dc.js</a>, <a href="https://github.com/square/crossfilter">crossfilter.js</a> and <a href="https://developers.google.com/maps/documentation/javascript">Google Maps' Javascript Api</a> we can quickly render the results.
 
 		<br>
-		We can interrogate the data to try and answer some simple questions. <br>
-		<br>How does time-of-day correlate with saving?
-		<br>Are longer flights better?
-		<br>Do Formations with less deviation perform better?
-		<br>What impact does restricting changes in take-off time effect savings?
+		<center><h2>Abstract</h2></center>
+		<p><blockquote
+			The need for commercial aviation to be more efficient and reduce its impact on the environment is an ongoing challenge. Formation flight has the potential to significantly reduce aircraft fuel consumption by allowing `follower' aircraft to fly in the aerodynamic wake of a `leader' aircraft. However, this requirement for flights to be in close proximity for large parts of their flights, raises questions about it suitability to the range of existing flights and varied geographical regions.
+			<br>
+			Therefore in this work we explore the potential for implementing formation flight for commercial aviation for distinct case studies: Long-Haul Airline (LHA), TransAtlantic Airline (TAA), and Low-Cost Airline (LCA). Each case study represents different airline characteristics and regions typical of today's flights. Fuel-saving results for average percentage savings against solo flight are shown to be very promising, with TAA achieving almost 9%, LHA just over 6% and LCA just under 2% which could amount to hundreds of millions of dollars in fuel savings.
+			<br>
+		</blockquote>
 		</p>
-		<br>
+		<center><h2>Methodology</h2></center>
+		<p>
+			Using Matlab to first find the optimal formations of size two we look at the results to see how the multi-variate results interact. Using the power of <a href="https://d3js.org/">dc.js</a>, <a href="https://github.com/square/crossfilter">crossfilter.js</a> and <a href="https://developers.google.com/maps/documentation/javascript">Google Maps' Javascript Api</a> we can quickly render the results.
 
-		<center><h2>Choose a dataset</h2></center>
+		<center><h2>Questions</h2></center>
+			<p>
+			We can interrogate the data to try and answer some simple questions.
+			 <br>&bull; How does time-of-day correlate with saving?
+			 <br>&bull; Are longer flights better?
+			 <br>&bull; Do Formations with less deviation perform better?
+			 <br>&bull; What impact does restricting changes in take-off time effect savings?
+			 <br>&bull; How much Co2 can we save by flying in formation?
+		</p>
+		</p>
 	</div>
 
 </div>
 
 
 <div class="container">
+<div class="bs-callout bs-callout-success">
+	<center><h2>Papers</h2></center>
+		<p>For more information please see one of the following Papers</p>
+		<br>
+			<button type="button" class="btn btn-default btn-lg btn-block" style="text-align:left;">
+				 <a href="papers/Kent2015Thesis.pdf" style="color:inherit"> <i class="fa fa-book"></i> Optimal routing and assignment for commercial formation flight - <i>T. Kent 2015 - Thesis</i></a>
+			</button>
+			<button type="button" class="btn btn-default btn-lg btn-block" style="text-align:left;">
+				 <a href="papers/Kent2015.pdf" style="color:inherit"> <i class="fa fa-book"></i> Analytic Approach to Optimal Routing for CommercialFormation Flight - <i>T. Kent, A. Richards 2015</i></a>
+			</button>
+			<button type="button" class="btn btn-default btn-lg btn-block"  style="text-align:left;">
+				 <a href="papers/Kent2013.pdf" style="color:inherit"> <i class="fa fa-book"></i> On optimal routing for commercial formation flight - <i>T. Kent, A. Richards 2013</i></a>
+			</button>
+</div>
+</div>
+<div class="container">
+	<center><h2>Choose a dataset</h2></center>
+</div>
+<div class="container">
+
 
  <div class="bs-callout bs-callout-info">
 		<h2>Case Study: Transatlantic Flights</h2>
@@ -78,15 +107,15 @@ body { min-height:500px;}
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_5">5 mins</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_10">10 mins</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_15">15 mins</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_30">30 mins</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_45">45 mins </a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_60">1 hour</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_120">2 hour</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_240">4 hour</a></li>
-				<li><a href="results.html?map=True&fname=Transatlantic/Form_data_t_any">Any</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_5">5 mins</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_10">10 mins</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_15">15 mins</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_30">30 mins</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_45">45 mins </a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_60">1 hour</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_120">2 hour</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_240">4 hour</a></li>
+				<li><a href="results.html?map=True&fname=TAA/Form_data_t_any">Any</a></li>
 		  </ul>
 	    </div>
 	    </center>
@@ -103,7 +132,7 @@ body { min-height:500px;}
 			   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-				<li><a href="results.html?map=False&fname=Transatlantic/Form_data_Big">All</a></li>
+				<li><a href="results.html?map=False&fname=TAA/Form_data_Big">All</a></li>
 			  </ul>
 	   	     </div>
 		    </center>
@@ -140,9 +169,9 @@ body { min-height:500px;}
 <div class="container">
 <!-- 	<div class="row"> -->
 	 <div class="bs-callout bs-callout-warning">
-		<h2>Case Study: EasyJet Flights</h2>
+		<h2>Case Study: Low Cost Airline</h2>
 
-		This dataset contains 4238 different EasyJet flights routes over 7 days, some flights running on multiple days meant that the total individual flights totalled 8750. As flights repeat over the week and multiple identical routes are flown on the same day (but at different times) the results need to be filtered.
+		This dataset contains 4238 different flights routes from a European low cost airline over 7 days, some flights running on multiple days meant that the total individual flights totalled 8750. As flights repeat over the week and multiple identical routes are flown on the same day (but at different times) the results need to be filtered.
 		<br><br>
 		Firstly the data is broken down into individual days (roughly 1000 flights each day), then all possible combinations (roughly 750k each time) are evaluated for formation. The unassigned formations dataset are then all the favourable formations from all combinations. These give a broader overview of all combinations and the spread of results. The MILP assigned formations, are then those which maximise the total possible saving. These are run for each day, and for different thresholds of alterations to takeoff time. The change in Take off time is important, as multiple identical flights on a day would quickly be put together otherwise, producing unrealistic results. <br>
 <!-- 	 </div> -->
@@ -157,12 +186,12 @@ body { min-height:500px;}
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-		    <li><a href="results.html?map=True&fname=EasyJet/Form_data_t_15">15 mins</a></li>
-			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_30">30 mins</a></li>
-			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_45">45 mins</a></li>
-			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_60"> 1 hour</a></li>
-			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_120">2 hours</a></li>
-			<li><a href="results.html?map=True&fname=EasyJet/Form_data_t_240">4 hours</a></li>
+		    <li><a href="results.html?map=True&fname=LCA/Form_data_t_15">15 mins</a></li>
+			<li><a href="results.html?map=True&fname=LCA/Form_data_t_30">30 mins</a></li>
+			<li><a href="results.html?map=True&fname=LCA/Form_data_t_45">45 mins</a></li>
+			<li><a href="results.html?map=True&fname=LCA/Form_data_t_60"> 1 hour</a></li>
+			<li><a href="results.html?map=True&fname=LCA/Form_data_t_120">2 hours</a></li>
+			<li><a href="results.html?map=True&fname=LCA/Form_data_t_240">4 hours</a></li>
 		  </ul>
 		</div>
 	    </center>
@@ -179,13 +208,13 @@ body { min-height:500px;}
 		   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-  			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Mon">Mon</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Tue">Tue</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Wed">Wed</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Thu">Thu</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Fri">Fri</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Sat">Sat</a></li>
-			<li><a href="results.html?map=False&fname=EasyJet/Form_data_Sun">Sun</a></li>
+  			<li><a href="results.html?map=False&fname=LCA/Form_data_Mon">Mon</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Tue">Tue</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Wed">Wed</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Thu">Thu</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Fri">Fri</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Sat">Sat</a></li>
+			<li><a href="results.html?map=False&fname=LCA/Form_data_Sun">Sun</a></li>
 			</ul>
    	     </div>
 	    </center>
@@ -200,10 +229,9 @@ body { min-height:500px;}
 <div class="container">
 <!-- 	<div class="row"> -->
 	 <div class="bs-callout bs-callout-danger">
-		<h2>Case Study: Singapore Airlines</h2>
-
-			Singapore Airlines is a major airline company serving flights from Southeast, East and South Asia to many domestic and international destinations. It acts as a good case study for a wide range of flight distances, ranging mostly between medium-haul to super-long-haul flights. The main difference between these flights and ones seen in the other case studies is that the vast majority of the routes are either flying from or to Singapore acting like a hub-network so not all routes are natural candidates for formation flight.
-The dataset contains 417 different Singapore Airlines flights running over a 7 day period. The number of flights per day ranges between 228 and 242 resulting in a respective range of formation combinations of between 25,000 and 29,000.
+		<h2>Case Study: Long-Haul Airline</h2>
+			This case study represents a major airline company based in Singapore, serving flights from Southeast, East and South Asia to many domestic and international destinations. It acts as a good case study for a wide range of flight distances, ranging mostly between medium-haul to super-long-haul flights. The main difference between these flights and ones seen in the other case studies is that the vast majority of the routes are either flying from or to Singapore acting like a hub-network so not all routes are natural candidates for formation flight.
+			The dataset contains 417 different flights running over a 7 day period. The number of flights per day ranges between 228 and 242 resulting in a respective range of formation combinations of between 25,000 and 29,000.
 
 		<br><br>
 		Firstly the data is broken down into individual days (roughly 235 flights each day), then all possible combinations (roughly 27k each time) are evaluated for formation. The unassigned formations dataset are then all the favourable formations from all combinations. These give a broader overview of all combinations and the spread of results. The MILP assigned formations, are then those which maximise the total possible saving. These are run for each day, and for different thresholds of alterations to takeoff time. The change in Take off time is important, as multiple identical flights on a day would quickly be put together otherwise, producing unrealistic results. <br>
@@ -219,13 +247,13 @@ The dataset contains 417 different Singapore Airlines flights running over a 7 d
 		   <i class="fa fa-clock-o"></i> Take off Time <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-		    <li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_15">15 mins</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_30">30 mins</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_45">45 mins</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_60"> 1 hour</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_120">2 hours</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_240">4 hours</a></li>
-			<li><a href="results.html?map=True&fname=SingaporeAirlines/Form_data_t_Inf">Any</a></li>
+		    <li><a href="results.html?map=True&fname=LHA/Form_data_t_15">15 mins</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_30">30 mins</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_45">45 mins</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_60"> 1 hour</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_120">2 hours</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_240">4 hours</a></li>
+			<li><a href="results.html?map=True&fname=LHA/Form_data_t_Inf">Any</a></li>
 		  </ul>
 		</div>
 	    </center>
@@ -242,13 +270,13 @@ The dataset contains 417 different Singapore Airlines flights running over a 7 d
 		   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-  			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Mon">Mon</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Tue">Tue</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Wed">Wed</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Thu">Thu</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Fri">Fri</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Sat">Sat</a></li>
-			<li><a href="results.html?map=False&fname=SingaporeAirlines/Form_data_Sun">Sun</a></li>
+  			<li><a href="results.html?map=False&fname=LHA/Form_data_Mon">Mon</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Tue">Tue</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Wed">Wed</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Thu">Thu</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Fri">Fri</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Sat">Sat</a></li>
+			<li><a href="results.html?map=False&fname=LHA/Form_data_Sun">Sun</a></li>
 			</ul>
    	     </div>
 	    </center>
