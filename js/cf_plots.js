@@ -67,6 +67,8 @@ var formatNumber = d3.format(",d"),
   formatPC = d3.format(",.1%");
   formatNo = d3.format(",.0f");
 
+
+
 // A nest operator, for grouping the flight list.
 var nestByDate = d3.nest()
   .key(function(d) { return d3.time.day(d.date); });
@@ -395,24 +397,39 @@ function updateMarkers() {
 
 	avg_pc = Math.max(0, isNaN(avg_pc) ? -Infinity : avg_pc);
     d3.select("#avg_pc_active").text(formatPC(avg_pc)); //render the pc saving
+    d3.select("#avg_pc_active-top").text(formatPC(avg_pc)); //render the pc saving
 	//avg dist
     avg_dist = flight.groupAll().reduceSum(function(d) { return d.Distance;}).value()/all.value();
-    d3.select("#avg_distance_active").text(formatNo(avg_dist)); //render the pc saving
+    avg_dist = Math.max(0, isNaN(avg_dist) ? -Infinity : avg_dist);
+
+    d3.select("#avg_distance_active").text('Avg: ' + formatNo(avg_dist) +' km'); //render the pc saving
     //avg dev
     avg_dev = flight.groupAll().reduceSum(function(d) { return d.dev;}).value()/all.value();
-    d3.select("#avg_dev_active").text(formatNo(avg_dev)); //render the pc saving
+    avg_dev = Math.max(0, isNaN(avg_dev) ? -Infinity : avg_dev);
+
+    d3.select("#avg_dev_active").text('Avg: ' + formatNo(avg_dev) + ' km'); //render the pc saving
+    d3.select("#avg_dev_active-top").text(formatNo(avg_dev)); //render the pc saving
     //avg cruise_pc
     avg_cruise_pc = flight.groupAll().reduceSum(function(d) { return d.cruise_pc;}).value()/(100*all.value());
-    d3.select("#avg_cruise_pc_active").text(formatPC(avg_cruise_pc)); //render the pc saving
+    avg_cruise_pc = Math.max(0, isNaN(avg_cruise_pc) ? -Infinity : avg_cruise_pc);
+
+    d3.select("#avg_cruise_pc_active").text('Avg: ' + formatPC(avg_cruise_pc)); //render the pc saving
    //avg tdiff
     avg_tdiff = flight.groupAll().reduceSum(function(d) { return d.tdiff;}).value()/all.value();
-    d3.select("#avg_tdiff_active").text(formatNo(avg_tdiff)); //render the pc saving
+    avg_tdiff = Math.max(0, isNaN(avg_tdiff) ? -Infinity : avg_tdiff);
+    d3.select("#avg_tdiff_active").text('Avg: ' + formatNo(avg_tdiff) +' mins'); //render the pc saving
 
     total_fb_kb = flight.groupAll().reduceSum(function(d) { return d.FB_tonne;}).value();
-    d3.select("#fb-kg-total").text(formatNo(total_fb_kb)); //render the pc saving
+    total_fb_kb = Math.max(0, isNaN(total_fb_kb) ? -Infinity : total_fb_kb);
+
+    d3.select("#fb-kg-total").text('Avg: ' + formatNo(total_fb_kb) + ' Tonnes'); //render the pc saving
+    d3.select("#fb-kg-total-top").text(formatNo(total_fb_kb)); //render the pc saving
 
     total_fb_co2 = flight.groupAll().reduceSum(function(d) { return d.FB_co2_tonne;}).value();
-    d3.select("#co2-kg-total").text(formatNo(total_fb_co2)); //render the pc saving
+    total_fb_co2 = Math.max(0, isNaN(total_fb_co2) ? -Infinity : total_fb_co2);
+
+    d3.select("#co2-kg-total").text('Avg: ' + formatNo(total_fb_co2) + ' Tonnes'); //render the pc saving
+    d3.select("#co2-kg-total-top").text(formatNo(total_fb_co2)); //render the pc saving
 
     d3.select("#active-forms").text(formatNo(all.value()));
 
@@ -477,7 +494,7 @@ if (plotmap == true){
         .append("div")
           .attr("class", "none")
           .text(function(d) { return d.FB_pc; });
-          
+
       date.exit().remove();
 
       var flight = date.order().selectAll(".flight")

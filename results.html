@@ -66,7 +66,17 @@
 		<h1>Formation Flight Results</h1>
 
 		<br>
-		<center><span id="active">-</span> of <span id="total">-</span> flights selected</center>
+		<center>
+            <h2>
+                <br><b>Number of formaions:</b> <span id="active">-</span> of <span id="total">-</span>
+                <br><b>Total fuel saving:</b> <span id="fb-kg-total-top"></span> tonnes
+                <br><b>Total co2 saving:</b> <span id="co2-kg-total-top"></span> tonnes
+                <br><b>Fuel saving on average:</b> <span id="avg_pc_active-top"></span>
+                <br><b>Deviation on average:</b> <span id="avg_dev_active-top"></span> km
+
+
+        </h2>
+        </center>
 	</div>
 	<div class="row">
 	</div>
@@ -193,7 +203,7 @@
 		</div>
 		<div class="col-md-8">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Avg. Distance of Cruise (km)  <span class="badge pull-right"><b id="avg_distance_active">km</b></span></div>
+			<div class="panel-heading">Distance in Cruise (km)  <span class="badge pull-right"><b id="avg_distance_active">km</b></span></div>
 			<div class="panel-body">
 				<center><div id="distance-chart" class="chart"><div class="resetbutton"></div></div></center>
 			</div>
@@ -211,7 +221,7 @@
 		</div>
 		<div class="col-md-4">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Avg. Deviation (km) <span class="badge pull-right"><b id="avg_dev_active"></b></span></div>
+			<div class="panel-heading">Deviation (km) <span class="badge pull-right"><b id="avg_dev_active"></b></span></div>
 			<div class="panel-body">
 				<center><div id="dev-chart" class="chart"><div class="resetbutton"></div></div></center>
 		   </div>
@@ -219,7 +229,7 @@
 		</div>
 		<div class="col-md-4">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Change in take-off times (min) <span class="badge pull-right"><b id="avg_tdiff_active"></b></span></div>
+			<div class="panel-heading">Schedule change (min) <span class="badge pull-right"><b id="avg_tdiff_active"></b></span></div>
 			<div class="panel-body">
 				<center><div id="to-chart" class="chart"><div class="resetbutton"></div></div></center>
 			</div>
