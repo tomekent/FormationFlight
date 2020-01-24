@@ -6,6 +6,8 @@
 <meta name="keywords" content="aircraft, research, aviation, formation flight, environment, co2, emissions">
 <meta name="author" content="Thomas Kent">
 <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
@@ -68,8 +70,9 @@
 		<br>
 		<center>
             <h2>
-                <br><b>Number of formaions:</b> <span id="active">-</span> of <span id="total">-</span>
+                <br><b>Number of formations:</b> <span id="active">-</span> of <span id="total">-</span>
                 <br><b>Total fuel saving:</b> <span id="fb-kg-total-top"></span> tonnes
+                <br><b>Total fuel cost saving:</b> $<span id="dollar-total-top"></span>
                 <br><b>Total co2 saving:</b> <span id="co2-kg-total-top"></span> tonnes
                 <br><b>Fuel saving on average:</b> <span id="avg_pc_active-top"></span>
                 <br><b>Deviation on average:</b> <span id="avg_dev_active-top"></span> km
@@ -90,9 +93,19 @@
 <div class="col-md-12 btn-marg">
 <center>
 <!-- <b style="font-size: 32px;">Filters: <b> -->
-	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Back</a>
-	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Choose Dataset</a>
+	<a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-arrow-left"></i> Back</a>
+	<!-- <a class="btn btn-success btn-lg" href="index.html"> <i class="fa fa-file"></i> Choose Dataset</a> -->
+    <div class="btn-group">
+	  <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+	   <i class="fa fa-file"></i> Choose Dataset <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu">
+  	    <li><a href="index.html#TAA">Transatlantic Flights</a></li>
+  	    <li><a href="index.html#LCA">Low Cost Airline</a></li>
+  	    <li><a href="index.html#LHA">Long Haul Airline</a></li>
 
+	  </ul>
+	</div>
 	<div class="btn-group btn-marg">
 	  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 	   <i class="fa fa-calendar-o"></i> Day <span class="caret"></span>
@@ -315,6 +328,8 @@
 
 
 <footer>
+    <cite><a href="https://www.iata.org/en/publications/economics/fuel-monitor/">Fuel price: ~$600 metric tonne </a></cite><br>
+    <cite><a href="https://www.icao.int/environmental-protection/Carbonoffset/Pages/default.aspx">Carbon per kg fuel burn: ~3.16 </a></cite></br>
   <span style="float:right;">
     Tom Kent 2020
   </span>
