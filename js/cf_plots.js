@@ -422,7 +422,7 @@ function updateMarkers() {
     total_fb_kg = flight.groupAll().reduceSum(function(d) { return d.FB_tonne;}).value();
     total_fb_kg = Math.max(0, isNaN(total_fb_kg) ? -Infinity : total_fb_kg);
 
-    d3.select("#fb-kg-total").text('Avg: ' + formatNo(total_fb_kg) + ' Tonnes'); //render the pc saving
+    d3.select("#fb-kg-total").text('Total: ' + formatNo(total_fb_kg) + ' Tonnes'); //render the pc saving
     d3.select("#fb-kg-total-top").text(formatNo(total_fb_kg)); //render the pc saving
 
     total_dollar = total_fb_kg * 600
@@ -431,7 +431,7 @@ function updateMarkers() {
     total_fb_co2 = flight.groupAll().reduceSum(function(d) { return d.FB_co2_tonne;}).value();
     total_fb_co2 = Math.max(0, isNaN(total_fb_co2) ? -Infinity : total_fb_co2);
 
-    d3.select("#co2-kg-total").text('Avg: ' + formatNo(total_fb_co2) + ' Tonnes'); //render the pc saving
+    d3.select("#co2-kg-total").text('Total: ' + formatNo(total_fb_co2) + ' Tonnes'); //render the pc saving
     d3.select("#co2-kg-total-top").text(formatNo(total_fb_co2)); //render the pc saving
 
     d3.select("#active-forms").text(formatNo(all.value()));
